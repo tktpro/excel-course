@@ -1,0 +1,17 @@
+{
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module",
+    "requireConfigFile": false
+  },
+  "rules": {
+    "no-console": "off"
+  }
+}
