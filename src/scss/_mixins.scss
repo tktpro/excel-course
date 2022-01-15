@@ -1,0 +1,31 @@
+@mixin button($color: #137333, $backgroundColor: #e6f4ea) {
+  height: 24px;
+  min-width: 24px;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(0, 0, 0.7);
+  cursor: pointer;
+  border-radius: 2px;
+  user-select: none;
+
+  & > .material-icons {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &:active,
+  &.active {
+    color: $color;
+    background-color: $backgroundColor;
+  }
+}
+@mixin clear-list() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
