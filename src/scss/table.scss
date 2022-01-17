@@ -10,6 +10,8 @@
   }
 
   .row-info {
+    user-select: none;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,6 +27,8 @@
   }
 
   .column {
+    user-select: none;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,8 +55,54 @@
 
     &.selected {
       border: none;
-      outline: 2px solid #3c74ff;
+      outline: 2px solid $primary-color;
       z-index: 2;
+    }
+  }
+
+  .col-resize,
+  .row-resize {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    bottom: 0;
+    background-color: $primary-color;
+    z-index: 1000;
+
+    &.active:before {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: inherit;
+    }
+
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .col-resize {
+    top: 0;
+    width: 5px;
+    cursor: e-resize;
+
+    &.active:before {
+      height: 5000px;
+      width: 1px;
+      left: 2px;
+    }
+  }
+
+  .row-resize {
+    left: 0;
+    height: 5px;
+    cursor: n-resize;
+
+    &.active:before {
+      width: 5000px;
+      height: 1px;
+      top: 2px;
     }
   }
 }
