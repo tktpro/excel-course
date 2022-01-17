@@ -12,6 +12,18 @@
     "requireConfigFile": false
   },
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "class-methods-use-this": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@", "./src"],
+          ["@core", "./src/core"]
+        ],
+        "extensions": [".js"]
+      }
+    }
   }
 }
