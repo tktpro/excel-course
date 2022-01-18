@@ -3,8 +3,16 @@ const CODES = {
   Z: 90,
 };
 
-function toCell(_, colIndex) {
-  return `<div class="cell" contenteditable spellcheck="false" data-col="${colIndex}"></div>`;
+function toCell(rowIndex) {
+  return (_, colIndex) => `
+    <div
+      class="cell"
+      contenteditable
+      spellcheck="false"
+      data-col="${colIndex}"
+      data-type="cell"
+      data-id="${rowIndex}:${colIndex}">
+    </div>`;
 }
 
 function toColumn(col, index) {
@@ -41,7 +49,7 @@ export default function createTable(rowsCount = 15) {
   rows.push(createRow(cols));
 
   for (let i = 0; i < rowsCount; i += 1) {
-    const cells = new Array(colsCount).fill('').map(toCell).join('');
+    const cells = new Array(colsCount).fill('').map(toCell(i)).join('');
     rows.push(createRow(cells, i + 1));
   }
 
